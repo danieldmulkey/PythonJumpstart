@@ -11,10 +11,10 @@ guess = int(input(prompt))
 
 while guess != target:
     if guess > target:
-        fail = 'Sorry but {} is {} than the number'.format(guess, 'GREATER')
+        fail = 'Sorry but {} is GREATER than the number'.format(guess)
         print(fail)
     elif guess < target:
-        fail = 'Sorry but {} is {} than the number'.format(guess, 'LOWER')
+        fail = 'Sorry but {} is LOWER than the number'.format(guess)
         print(fail)
     guess = int(input(prompt))
 

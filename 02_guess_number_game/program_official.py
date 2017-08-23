@@ -5,9 +5,9 @@ print('     GUESS THAT NUMBER GAME')
 print('---------------------------------')
 print()
 
-# the_number = random.randint(0, 100)
-
 the_number = random.randint(0, 100)
+
+name = input('Player, what is your name? ')
 
 guess = -1
 while guess != the_number:
@@ -15,11 +15,11 @@ while guess != the_number:
     guess = int(guess_text)
 
     if guess < the_number:
-        print('Too low!')
+        print('Sorry {}, your guess of {} was too LOW.'.format(name, guess))
+        print('Sorry {}, your guess of {} was too LOW.'.format(name, guess))
     elif guess > the_number:
-        print('Too high!')
+        print('Sorry {}, your guess of {} was too HIGH.'.format(name, guess))
     else:
-        print('You win!')
-
+        print('Excellent work {}, you won! It was {}.'.format(name, guess))
 
 print('Done')
