@@ -36,6 +36,7 @@ def print_birthday_information(days):
 
 
 def main():
+    # PyCharm has great debugging features (particuarly function namespace access)
     print_header()
     bday = get_birthday_from_user()
     now = datetime.datetime.now()
