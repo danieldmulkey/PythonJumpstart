@@ -38,6 +38,6 @@ def main():
     save_journal(jrn)
 
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
 # I could go through and come up with a solution, but I'm just going to follow along with the video as my method
 # would demonstrate a fair amount of bad style.
