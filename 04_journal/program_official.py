@@ -1,4 +1,6 @@
 import journal
+
+
 # from journal import load, save  # sometimes ok
 # from journal import *  # no!
 
@@ -17,7 +19,7 @@ def run_event_loop():
     print('What do you want to do with your journal?')
     cmd = 'EMPTY'
     journal_name = 'default'
-    journal_data = journal.load(journal_name)   # []  # list()
+    journal_data = journal.load(journal_name)  # []  # list()
 
     while cmd != 'x' and cmd:  # because empty string evaluates to False
         cmd = input('[L]ist entries, [A]dd an entry, E[x]it: ')
@@ -37,12 +39,14 @@ def list_entries(data):
     print('Your journal entries:')
     entries = reversed(data)
     for (idx, entry) in enumerate(entries):
-        print('* [{}] {}'.format(idx+1, entry))
+        print('* [{}] {}'.format(idx + 1, entry))
 
 
 def add_entry(data):
     text = input('Type your entry, <enter> to exit: ')
     journal.add_entry(text, data)
 
-
-main()
+# __file__ is current filepath
+# __name__ changes if not target of execution
+if __name__ == '__main__':
+    main()
