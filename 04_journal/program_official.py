@@ -46,6 +46,7 @@ def add_entry(data):
     text = input('Type your entry, <enter> to exit: ')
     journal.add_entry(text, data)
 
+
 # __file__ is current filepath
 # __name__ changes if not target of execution
 if __name__ == '__main__':
