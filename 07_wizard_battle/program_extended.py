@@ -13,11 +13,11 @@ def print_header():
 
 def game_loop():
     creatures = [
-        SmallAnimal('Toad', 1),
-        Creature('Tiger', 12),
-        SmallAnimal('Bat', 3),
-        Dragon('Dragon', 50, 75, True),
-        Wizard('Evil Wizard', 1000)
+        SmallAnimal('Toad', 'low'),
+        Creature('Tiger', 'medium'),
+        SmallAnimal('Bat', 'low'),
+        Dragon('Dragon', 'high', scaliness=75, breathes_fire=True),
+        Wizard('Evil Wizard', 'pro')
     ]
 
     hero = Wizard('Gandalf', 75)

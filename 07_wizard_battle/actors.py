@@ -1,49 +1,57 @@
 import random
 
 
-# Base class first!
+def get_levels(rank):
+    if rank == 'low':
+        return random.randint(1, 30)
+    elif rank == 'medium':
+        return random.randint(31, 60)
+    elif rank == 'high':
+        return random.randint(61, 100)
+    elif rank == 'pro':
+        return random.randint(500, 1000)
+    else:
+        return random.randint(1, 1000)
+
+
+# Define base class first!
 class Creature:
     # level, name,
-    def __init__(self, name, the_level):
+    def __init__(self, name, level_rank):
         self.name = name
-        self.level = the_level
+        self.level = get_levels(level_rank)
 
     def __repr__(self):
-        return 'Creature {} of level {}'.format(
-            self.name, self.level
-        )
+        return 'Creature {} of level {}'.format(self.name, self.level)
 
     def get_defensive_roll(self):
-        return random.randint(1, 12) * self.level
+        return random.randint(0, 20) * self.level
 
 
 class Wizard(Creature):
-    def attack(self, other_creature):
+    def attack(self, attack_target: Creature):
         # UI piece:
-        print('The wizard {} attacks {}!'.format(
-            self.name, other_creature.name
-        ))
+        print('The wizard {} attacks {}!'.format(self.name, attack_target.name))
 
         # Actual attack:
         my_roll = self.get_defensive_roll()
-        # creature_roll = random.randint(1, 12) * other_creature.level
-        creature_roll = other_creature.get_defensive_roll()
+        creature_roll = attack_target.get_defensive_roll()
 
         # More UI
         print('You roll', my_roll)
-        print('{} rolls'.format(other_creature), creature_roll)
+        print('{} rolls'.format(attack_target), creature_roll)
 
         # More attack logic. UI and logic should be separate.
         if my_roll >= creature_roll:
-            print('Wizard wins against {}!'.format(other_creature.name))
+            print('Wizard {} WINS against {}!'.format(self.name, attack_target.name))
             return True
         else:
-            print('Wizard DEFEATED!')
+            print('Wizard {} DEFEATED by {}!'.format(self.name, attack_target.name))
             return False
 
 
 class SmallAnimal(Creature):
-    def get_defensive_roll(self):  # redefining method from super class
+    def get_defensive_roll(self):  # redefining method from base class
         base_roll = super().get_defensive_roll()
         return base_roll / 2
 
