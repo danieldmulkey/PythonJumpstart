@@ -6,7 +6,7 @@ from actors import Wizard, Creature, SmallAnimal, Dragon
 
 def print_header():
     print('-----------------------')
-    print('    WIZARD GAME APP')
+    print('   WIZARD GAME APP')
     print('-----------------------')
     print()
 
@@ -23,7 +23,6 @@ def game_loop():
     hero = Wizard('Gandalf', 75)
 
     while True:
-
         active_creature = random.choice(creatures)
         print()
         print('A {} of level {} has appeared from a dark and foggy forest...'

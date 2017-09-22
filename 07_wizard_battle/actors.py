@@ -30,6 +30,7 @@ class Creature:
 
 class Wizard(Creature):
     def attack(self, attack_target: Creature):
+        # TODO: Figure out how this should be separated into UI and logic
         # UI piece:
         print('The wizard {} attacks {}!'.format(self.name, attack_target.name))
 
