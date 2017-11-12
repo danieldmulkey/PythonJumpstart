@@ -122,13 +122,14 @@ def query_data(data):  # : list[Purchase]):  # can specify data type of arg
         if announce(p, '2-bedrooms, found {}'.format(p.beds)) and p.beds == 2  # test / condition
     )
 
-    homes = []
+    homes = []  # list because access repeatedly
     for h in two_bed_homes:
         if len(homes) >= 5:
             break
         homes.append(h)
 
-    ave_price = statistics.mean((announce(p.price, 'price') for p in homes))
+    # If homes was a gen exp, it would be consumed on first use
+    ave_price = statistics.mean((announce(p.price, 'price') for p in homes))  # gen exp because throw away
     ave_baths = statistics.mean((p.baths for p in homes))
     ave_sq_ft = statistics.mean((p.sq_ft for p in homes))
     print('The average 2-bedroom home is ${:,}, baths={}, sq_ft={:,}'

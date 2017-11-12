@@ -14,7 +14,7 @@ class Purchase:
         self.latitude = latitude
         self.longitude = longitude
 
-    @staticmethod  # deals with class/type, not object --> staticmethod
+    @staticmethod  # deals with class/type, not instance of class/the object --> staticmethod --> no self
     def create_from_dict(lookup):
         return Purchase(
             lookup['street'],

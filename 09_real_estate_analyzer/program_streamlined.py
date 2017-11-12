@@ -13,7 +13,9 @@ def main():
     print_header()
 
     filename = get_data_file()
+
     data = load_file(filename)
+
     query_data(data)
 
 
@@ -44,10 +46,10 @@ def query_data(data):
     data.sort(key=lambda p: p.price)
     high_purchase = data[-1]
     low_purchase = data[0]
-    print('The most expensive house is ${:,} \
-           with {} beds and {} baths'.format(high_purchase.price, high_purchase.beds, high_purchase.baths))
-    print('The least expensive house is ${:,} \
-           with {} beds and {} baths'.format(low_purchase.price, low_purchase.beds, low_purchase.baths))
+    print('The most expensive house is ${:,} with {} beds and {} baths'
+          .format(high_purchase.price, high_purchase.beds, high_purchase.baths))
+    print('The least expensive house is ${:,} with {} beds and {} baths'
+          .format(low_purchase.price, low_purchase.beds, low_purchase.baths))
 
     # Stats on prices
     prices = (p.price for p in data)
@@ -55,18 +57,10 @@ def query_data(data):
     print('The average home price is ${:,}'.format(int(ave_price)))
 
     # Stats on 2-bedroom homes
-    two_bed_homes = (p for p in data if announce(p, '2-bedrooms, found {}'.format(p.beds)) and p.beds == 2)
-
-    # Get the first 5
-    homes = []
-    for h in two_bed_homes:
-        if len(homes) >= 5:
-            break
-        homes.append(h)
-
-    ave_price = statistics.mean((announce(p.price, 'price') for p in homes))
-    ave_baths = statistics.mean((p.baths for p in homes))
-    ave_sq_ft = statistics.mean((p.sq_ft for p in homes))
+    two_bed_homes = [p for p in data if p.beds == 2]  # list so not consumed
+    ave_price = statistics.mean((p.price for p in two_bed_homes))
+    ave_baths = statistics.mean((p.baths for p in two_bed_homes))
+    ave_sq_ft = statistics.mean((p.sq_ft for p in two_bed_homes))
     print('The average 2-bedroom home is ${:,}, baths={}, sq_ft={:,}'
           .format(int(ave_price), round(ave_baths, 1), round(ave_sq_ft, 1)))
 
