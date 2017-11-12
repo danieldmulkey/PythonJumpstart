@@ -4,6 +4,11 @@ import time
 from actors import Wizard, Creature, SmallAnimal, Dragon
 
 
+def main():
+    print_header()
+    game_loop()
+
+
 def print_header():
     print('-----------------------')
     print('   WIZARD GAME APP')
@@ -49,11 +54,6 @@ def game_loop():
         if not creatures:
             print('You defeated all the creatures!')
             break
-
-
-def main():
-    print_header()
-    game_loop()
 
 
 if __name__ == '__main__':
