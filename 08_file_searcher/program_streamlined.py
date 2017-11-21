@@ -21,7 +21,7 @@ def main():
     matches = search_folders(folder, text)
 
     match_count = 0
-    for m in matches:
+    for _ in matches:
         match_count += 1
 
     print('Found {:,} matches.'.format(match_count))
