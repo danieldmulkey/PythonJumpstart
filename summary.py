@@ -159,3 +159,5 @@ print(lookup['user4@talkpython.fm'])
 
 # Put try/except immediately in event loop --> increased stability, assuming you handle exceptions well
 # (That was the main note from app 10, really)
+
+# OH! dict.get('key') vs. dict['key']: get() returns None if 'key' isn't present, ['key'] returns an error.
