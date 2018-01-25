@@ -20,9 +20,11 @@ def search_event_loop():
     while search.lower() != 'x':
         # Apparently, put try/except in event loop instead of movie_svc module? I guess it is more transparent as
         # to loop flow.
+        # Ah! No, it's so that event loop is more stable, as it handles Exception without breaking.
         try:
             search = input('Movie search text (x to exit): ')
             if search.lower() != 'x':
+                # Why not just wrap this line in try/except? Ah, would miss Exception
                 results = movie_svc.find_movies(search)
                 print('Found {} results'.format(len(results)))
                 for r in results:
@@ -41,11 +43,7 @@ def search_event_loop():
     #     search = input('Movie search text (x to exit): ')
     #     if search.lower() == 'x':
     #         break
-    #     results = movie_svc.find_movies(search)
-    #     print('Found {} results'.format(len(results)))
-    #     for r in results:
-    #         print('{} -- {}'.format(r.year, r.title))
-    #     print()
+    #     ...
 
     print('Exiting...')
 

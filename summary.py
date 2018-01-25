@@ -152,3 +152,7 @@ print(lookup[3])
 for u in users:
     lookup[u.email] = u
 print(lookup['user4@talkpython.fm'])
+
+
+# Put try/except immediately in event loop --> increased stability, assuming you handle exceptions well
+
