@@ -67,6 +67,7 @@ for n in fibonacci_co(100):
     print(n, end=', ')
 print()
 
+
 # yield from is a thing:
 def search_file(full_item, text):
     yield
@@ -83,29 +84,32 @@ def search_folders(folder, text):
         else:
             yield from search_file(full_item, text)
 
+
 # List comp:
 x = [0, 1, 2, 3, 4, 5]
-y = [t**2 for t in x if t > 1]  # list comp to access repeatedly
+y = [t ** 2 for t in x if t > 1]  # list comp to access repeatedly
 print('y by list comp is', y)
-y = (t**2 for t in x if t > 1)  # gen expr to consume once
+y = (t ** 2 for t in x if t > 1)  # gen expr to consume once
 print('y by gen exp is', y.__next__())
 
 # lambda arg: return is good for inline function
 
-#@staticmethod  # deals with class/type, not instance of class/the object --> staticmethod --> no self
+# @staticmethod  # deals with class/type, not instance of class/the object --> staticmethod --> no self
 
 # Elaborate on dicts:
 
 # DICTIONARIES FOR DISPARATE TYPES OF RELATED DATA:
 lookup = {}
 lookup = dict()
-lookup = {'age':42, 'loc': 'Italy'}
+lookup = {'age': 42, 'loc': 'Italy'}
 lookup = dict(age=42, loc='Italy')
+
 
 class Wizard:
     def __init__(self, name, level):
         self.name = name
         self.level = level
+
 
 gandalf = Wizard('Gandalf', 42)
 
@@ -121,7 +125,6 @@ lookup['cat'] = 'Fun code demos'
 
 if 'cat' in lookup:
     print(lookup['cat'])
-
 
 # DICTIONARIES FOR DIFFERENT INSTANCES OF HOMOGENEOUS DATA:
 # Store a homogeneous set of data and find it by key. So use the dictionary as a
@@ -155,4 +158,4 @@ print(lookup['user4@talkpython.fm'])
 
 
 # Put try/except immediately in event loop --> increased stability, assuming you handle exceptions well
-
+# (That was the main note from app 10, really)
