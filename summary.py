@@ -161,3 +161,7 @@ print(lookup['user4@talkpython.fm'])
 # (That was the main note from app 10, really)
 
 # OH! dict.get('key') vs. dict['key']: get() returns None if 'key' isn't present, ['key'] returns an error.
+
+# Ok, really last point: **kwargs is highly useful. See movie_svc for example of using list comp
+# and namedtuple to convert dict key:value pairs into object attributes. NB: **kwargs enables dicts in
+# list comp to have different sets of keys/not all dicts have to have every key.

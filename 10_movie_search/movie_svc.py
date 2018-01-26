@@ -16,8 +16,10 @@ def find_movies(search_text):
     resp.raise_for_status()
 
     movie_data = resp.json()
+    # list of dictionaries:
     movies_list = movie_data.get('hits')
 
+    # If dict md keys match namedtuple MovieResult args, converts dict values to namedtuple attribute values:
     movies = [MovieResult(**md) for md in movies_list]
 
     movies.sort(key=lambda m: -m.year)
